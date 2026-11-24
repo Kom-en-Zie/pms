@@ -12,6 +12,7 @@ ADRs are immutable once accepted. To change a decision, write a new ADR that sup
 | [0005](0005-postgresql-flyway-hibernate.md) | PostgreSQL 19, Flyway migrations, Hibernate ORM with Panache | Accepted |
 | [0006](0006-defer-authentication-plan-for-planning-center-oidc.md) | Defer authentication, plan for Planning Center OIDC | Accepted |
 | [0007](0007-docker-single-origin-deployment.md) | Docker everywhere, single-origin deployment behind nginx | Accepted |
+| [0008](0008-latest-jdk-lts.md) | Always use the latest JDK LTS | Accepted |
 
 ## Template
 

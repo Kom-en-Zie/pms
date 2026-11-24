@@ -4,7 +4,7 @@
 
 | Tool | Version | Notes |
 |------|---------|-------|
-| JDK  | 25      | Gradle downloads it automatically through the toolchain resolver if it is missing. Any newer JDK can run Gradle itself. |
+| JDK  | 25 (latest LTS) | Used for compiling and for running Gradle itself (`gradle/gradle-daemon-jvm.properties`). Gradle downloads it automatically if it is missing. |
 | Docker | Recent, with Compose v2 | Needed for Quarkus Dev Services (dev and test database) and for the full stack. |
 | IDE  | IntelliJ IDEA (recommended) or Android Studio | Open the repository root as a Gradle project. The Kotlin Multiplatform plugin helps with Compose. |
 
@@ -96,6 +96,9 @@ push and pull request.
   enforces that BOM, so a mismatch would compile `shared` against one version and run it against
   another. When you upgrade Quarkus, look up the versions in its BOM and update these together.
   Dependabot ignores them on purpose.
+- **The JDK is always the latest LTS** (currently 25). Upgrade the toolchain (`jvmToolchain`,
+  `jvmTarget`), the daemon (`./gradlew updateDaemonJvm --jvm-version=<n>`), the Docker base images
+  and CI together. See [ADR 0008](adr/0008-latest-jdk-lts.md).
 - Backend library versions come from the Quarkus BOM. Don't add versions to Quarkus extensions.
 
 ## Adding Android or iOS later

@@ -26,7 +26,7 @@ media team.
 | Shared   | Kotlin Multiplatform · kotlinx.serialization · kotlinx-datetime            |
 | Database | PostgreSQL 19                                                              |
 | Runtime  | Docker / Docker Compose · nginx (static files + `/api` proxy)              |
-| Build    | Gradle 9 (Kotlin DSL, version catalog) · JDK 25                            |
+| Build    | Gradle 9 (Kotlin DSL, version catalog) · JDK 25 (latest LTS)               |
 
 Clients: **web** for now. **Android and iOS** are planned, using the same Compose code.
 Authentication: **none during the first development phase**. OIDC with Planning Center comes later

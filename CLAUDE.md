@@ -34,7 +34,7 @@ docker compose up --build                           # full stack on :8080 (needs
 - Schema changes go in a **new** Flyway migration (`backend/src/main/resources/db/migration/V<n>__*.sql`).
   Never edit an existing migration. Hibernate must not manage the schema.
 - Kotlin, kotlinx-coroutines and kotlinx-serialization versions must match the Quarkus BOM
-  (`gradle/libs.versions.toml`). Don't bump them independently.
+  (`gradle/libs.versions.toml`). Don't bump them independently. The JDK is always the latest LTS (ADR 0008).
 - REST endpoints live under `/api`. JSON uses kotlinx.serialization. Errors use RFC 9457 problem details.
 - UI: mobile first and simple (docs/ux-guidelines.md). Use window size classes, not platform checks.
   Strings go in `composeResources`, Dutch by default.
