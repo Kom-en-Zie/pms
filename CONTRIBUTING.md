@@ -3,6 +3,13 @@
 Thanks for helping the Kom en Zie technical teams! This guide covers the basics. The
 [development guide](docs/development.md) has the technical details.
 
+## Who can contribute
+
+Yes, AI (Claude) is used to build this application.
+No, that doesn't mean you can contribute without technical knowledge.
+**You're not allowed to contribute if you don't know how to code.** You must understand, and be
+able to explain, every change you submit, including code an AI tool wrote for you.
+
 ## Before you start
 
 - Read the [architecture overview](docs/architecture.md) and the [UX guidelines](docs/ux-guidelines.md).
