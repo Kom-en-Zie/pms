@@ -7,7 +7,7 @@ Guidance for AI coding agents working in this repository. Humans: see README.md 
 
 ## Project
 
-PMS for the technical teams (mainly the media team) of Kom en Zie. Kotlin across the stack:
+PMS (Project Management System) for the technical teams (mainly the media team) of Kom en Zie. Kotlin across the stack:
 Quarkus 4 backend, Compose Multiplatform client (web/Wasm now; Android/iOS later), shared KMP
 module, PostgreSQL 19, everything in Docker. **The repository is public.** Never add secrets, real
 credentials or personal data, including in tests, fixtures, docs or commit messages.

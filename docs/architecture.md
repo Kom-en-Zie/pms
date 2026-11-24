@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes how PMS is put together. The reasons behind the larger decisions are in the
+This document describes how PMS (Project Management System) is put together. The reasons behind the larger decisions are in the
 [ADRs](adr/README.md).
 
 ## Overview

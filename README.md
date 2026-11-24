@@ -1,8 +1,9 @@
-# PMS
+# PMS: Project Management System
 
 [![CI](https://github.com/Kom-en-Zie/pms/actions/workflows/ci.yml/badge.svg)](https://github.com/Kom-en-Zie/pms/actions/workflows/ci.yml)
 
-PMS is the system used by the technical teams of **Kom en Zie**, mainly the media team.
+PMS is the project management system for the technical teams of **Kom en Zie**, mainly the
+media team.
 
 > **Status: foundation only.** The frameworks, build, Docker setup and documentation are in place.
 > No features exist yet. See the [roadmap](docs/roadmap.md).
