@@ -1,0 +1,14 @@
+# Keep the build context small and free of local state / secrets.
+.git
+.github
+.idea
+.gradle
+.kotlin
+**/build
+**/node_modules
+out
+docs
+*.md
+.env
+.env.*
+local.properties

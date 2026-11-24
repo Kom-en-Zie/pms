@@ -1,0 +1,57 @@
+# Full PMS stack: PostgreSQL + Quarkus backend + web frontend (nginx).
+#
+#   cp .env.example .env      # once; then set a real password
+#   docker compose up --build
+#   open http://localhost:8080
+#
+# For day-to-day development with live reload, see docs/development.md.
+
+name: pms
+
+services:
+  db:
+    image: postgres:19-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PMS_DB_NAME:-pms}
+      POSTGRES_USER: ${PMS_DB_USER:-pms}
+      POSTGRES_PASSWORD: ${PMS_DB_PASSWORD:?Set PMS_DB_PASSWORD in .env (copy .env.example)}
+    volumes:
+      # Since PostgreSQL 18 the image keeps its data in a versioned subdirectory
+      # (/var/lib/postgresql/<major>/docker), so mount the parent directory.
+      - db-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$${POSTGRES_USER}\" -d \"$${POSTGRES_DB}\""]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    # Not published to the host. Use `docker compose exec db psql -U pms pms` to inspect.
+
+  backend:
+    build:
+      context: .
+      target: backend
+    image: pms-backend:local
+    restart: unless-stopped
+    environment:
+      PMS_DB_URL: jdbc:postgresql://db:5432/${PMS_DB_NAME:-pms}
+      PMS_DB_USER: ${PMS_DB_USER:-pms}
+      PMS_DB_PASSWORD: ${PMS_DB_PASSWORD:?Set PMS_DB_PASSWORD in .env (copy .env.example)}
+    depends_on:
+      db:
+        condition: service_healthy
+    # Only reachable through the frontend proxy (/api).
+
+  frontend:
+    build:
+      context: .
+      target: frontend
+    image: pms-frontend:local
+    restart: unless-stopped
+    ports:
+      - "${PMS_HTTP_PORT:-8080}:8080"
+    depends_on:
+      - backend
+
+volumes:
+  db-data:
